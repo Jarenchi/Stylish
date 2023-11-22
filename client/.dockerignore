@@ -1,0 +1,6 @@
+node_modules
+Dockerfile
+.dockerignore
+package-lock.json
+cypress
+cypress.config.ts

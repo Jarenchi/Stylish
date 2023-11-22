@@ -1,0 +1,1506 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Stylish API-Doc",
+    "description": "Stylish API description"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/1.0",
+      "description": "Local development server"
+    },
+    {
+      "url": "http://176.34.46.173/api/1.0",
+      "description": "EC2 server"
+    }
+  ],
+  "paths": {
+    "/products/all": {
+      "get": {
+        "summary": "Get all products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "paging",
+            "in": "query",
+            "description": "Paging for request next page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": 1234,
+                      "category": "women",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        },
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        }
+                      ],
+                      "sizes": ["S", "M"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 0
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "M",
+                          "stock": 2
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    },
+                    {
+                      "id": 5678,
+                      "category": "men",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "L",
+                          "stock": 0
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    }
+                  ],
+                  "next_paging": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/women": {
+      "get": {
+        "summary": "Get women products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "paging",
+            "in": "query",
+            "description": "Paging for request next page",
+            "schema": {
+              "type": "string",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": 1234,
+                      "category": "women",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        },
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        }
+                      ],
+                      "sizes": ["S", "M"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 0
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "M",
+                          "stock": 2
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    },
+                    {
+                      "id": 5678,
+                      "category": "women",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "L",
+                          "stock": 0
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    }
+                  ],
+                  "next_paging": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/men": {
+      "get": {
+        "summary": "Get men products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "paging",
+            "in": "query",
+            "description": "Paging for request next page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": 1234,
+                      "category": "men",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        },
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        }
+                      ],
+                      "sizes": ["S", "M"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 0
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "M",
+                          "stock": 2
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    },
+                    {
+                      "id": 5678,
+                      "category": "women",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "L",
+                          "stock": 0
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    }
+                  ],
+                  "next_paging": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/accessories": {
+      "get": {
+        "summary": "Get accessories products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "paging",
+            "in": "query",
+            "description": "Paging for request next page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": 1234,
+                      "category": "accessories",
+                      "title": "厚實毛呢格子手套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        },
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        }
+                      ],
+                      "sizes": ["S", "M"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 0
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "M",
+                          "stock": 2
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    },
+                    {
+                      "id": 5678,
+                      "category": "accessories",
+                      "title": "厚實毛呢格子手套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "L",
+                          "stock": 0
+                        }
+                      ],
+                      "main_image": "https://stylish.com/main.jpg",
+                      "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                    }
+                  ],
+                  "next_paging": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/search": {
+      "get": {
+        "summary": "Search products",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Required",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "洋裝"
+            }
+          },
+          {
+            "name": "paging",
+            "in": "query",
+            "description": "Paging for request next page. (Optional)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": 201807201824,
+                      "category": "women",
+                      "title": "前開衩扭結洋裝",
+                      "description": "厚薄：薄\r\n彈性：無",
+                      "price": 799,
+                      "texture": "棉 100%",
+                      "wash": "手洗，溫水",
+                      "place": "中國",
+                      "note": "實品顏色依單品照為主",
+                      "story": "O.N.S is all about options, which is why we took our staple polo shirt and upgraded it with slubby linen jersey, making it even lighter for those who prefer their summer style extra-breezy.",
+                      "main_image": "https://stylish.com/assets/201807201824/main.jpg",
+                      "images": [
+                        "https://stylish.com/assets/201807201824/0.jpg",
+                        "https://stylish.com/assets/201807201824/1.jpg",
+                        "https://stylish.com/assets/201807201824/0.jpg",
+                        "https://stylish.com/assets/201807201824/1.jpg"
+                      ],
+                      "variants": [
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 2
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "M",
+                          "stock": 1
+                        },
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "L",
+                          "stock": 2
+                        }
+                      ],
+                      "colors": [
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"]
+                    },
+                    {
+                      "id": 201902191210,
+                      "category": "women",
+                      "title": "精緻扭結洋裝",
+                      "description": "厚薄：薄\r\n彈性：無",
+                      "price": 999,
+                      "texture": "棉 100%",
+                      "wash": "手洗",
+                      "place": "越南",
+                      "note": "實品顏色依單品照為主",
+                      "story": "O.N.S is all about options, which is why we took our staple polo shirt and upgraded it with slubby linen jersey, making it even lighter for those who prefer their summer style extra-breezy.",
+                      "main_image": "https://stylish.com/assets/201902191210/main.jpg",
+                      "images": [
+                        "https://stylish.com/assets/201902191210/0.jpg",
+                        "https://stylish.com/assets/201902191210/1.jpg",
+                        "https://stylish.com/assets/201902191210/0.jpg",
+                        "https://stylish.com/assets/201902191210/1.jpg"
+                      ],
+                      "variants": [
+                        {
+                          "color_code": "FFFFFF",
+                          "size": "S",
+                          "stock": 0
+                        },
+                        {
+                          "color_code": "FFDDDD",
+                          "size": "M",
+                          "stock": 1
+                        }
+                      ],
+                      "colors": [
+                        {
+                          "code": "FFFFFF",
+                          "name": "白色"
+                        },
+                        {
+                          "code": "FFDDDD",
+                          "name": "粉紅"
+                        }
+                      ],
+                      "sizes": ["S", "M"]
+                    }
+                  ],
+                  "next_paging": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/details": {
+      "get": {
+        "summary": "Get product details",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Product Id. Required",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": 1234,
+                    "category": "men",
+                    "title": "厚實毛呢格子外套",
+                    "description": "高抗寒素材選用，保暖也時尚有型",
+                    "price": 2200,
+                    "texture": "棉、聚脂纖維",
+                    "wash": "手洗（水溫40度",
+                    "place": "韓國",
+                    "note": "實品顏色以單品照為主",
+                    "story": "你絕對不能錯過的超值商品",
+                    "colors": [
+                      {
+                        "code": "334455",
+                        "name": "深藍"
+                      }
+                    ],
+                    "sizes": ["S", "M", "L"],
+                    "variants": [
+                      {
+                        "color_code": "334455",
+                        "size": "S",
+                        "stock": 5
+                      },
+                      {
+                        "color_code": "334455",
+                        "size": "M",
+                        "stock": 10
+                      },
+                      {
+                        "color_code": "334455",
+                        "size": "L",
+                        "stock": 0
+                      }
+                    ],
+                    "main_image": "https://stylish.com/main.jpg",
+                    "images": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "summary": "Create product details",
+        "tags": ["products"],
+        "requestBody": {
+          "description": "Product Object",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "main_image": {
+                    "type": "file",
+                    "description": "Main image file upload"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "file"
+                    },
+                    "description": "Images file upload"
+                  },
+                  "data": {
+                    "type": "string",
+                    "description": "Other product details",
+                    "schema": {
+                      "$ref": "#/components/schemas/ProductInput"
+                    },
+                    "properties": {
+                      "$ref": "#/components/schemas/ProductInput"
+                    },
+                    "example": {
+                      "category": "men",
+                      "title": "厚實毛呢格子外套",
+                      "description": "高抗寒素材選用，保暖也時尚有型",
+                      "price": 2200,
+                      "texture": "棉、聚脂纖維",
+                      "wash": "手洗（水溫40度",
+                      "place": "韓國",
+                      "note": "實品顏色以單品照為主",
+                      "story": "你絕對不能錯過的超值商品",
+                      "colors": [
+                        {
+                          "code": "334455",
+                          "name": "深藍"
+                        }
+                      ],
+                      "sizes": ["S", "M", "L"],
+                      "variants": [
+                        {
+                          "color_code": "334455",
+                          "size": "S",
+                          "stock": 5
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "M",
+                          "stock": 10
+                        },
+                        {
+                          "color_code": "334455",
+                          "size": "L",
+                          "stock": 0
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": ["main_image", "images", "data"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Product created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Product created successfully",
+                  "productId": 123
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/signup": {
+      "post": {
+        "summary": "User Sign Up",
+        "tags": ["user"],
+        "requestBody": {
+          "description": "User Sign Up Request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "User's name",
+                    "example": "test"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "User's email",
+                    "example": "test@test.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "User's password",
+                    "example": "test"
+                  }
+                },
+                "required": ["name", "email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Sign Up",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6joiYXJ0aHVIjoxNjEzNTY3MzA0fQ.6EPCOfBGynidAfpVqlvbHGWHCJ5LZLtKvPaQ",
+                    "access_expired": 3600,
+                    "user": {
+                      "id": 11245642,
+                      "provider": "google",
+                      "name": "Pei",
+                      "email": "pei@appworks.tw",
+                      "picture": "https://schoolvoyage.ga/images/123498.png"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Email Already Exists",
+            "content": {
+              "text": {
+                "example": "Email already exists"
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Client error message"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Server Error",
+          "content": {
+            "text": {
+              "example": "Server error message"
+            }
+          }
+        }
+      }
+    },
+    "/user/signin": {
+      "post": {
+        "summary": "User Sign In",
+        "tags": ["user"],
+        "requestBody": {
+          "description": "User Sign In Request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "description": "User's provider (native or facebook)"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "User's email (required if provider is set to native)"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "User's password (required if provider is set to native)"
+                  },
+                  "access_token": {
+                    "type": "string",
+                    "description": "Access token from Facebook (required if provider is set to facebook)"
+                  }
+                },
+                "required": ["provider"]
+              },
+              "examples": {
+                "nativeSignIn": {
+                  "value": {
+                    "provider": "native",
+                    "email": "test@test.com",
+                    "password": "test"
+                  }
+                },
+                "GoogleSignIn": {
+                  "value": {
+                    "provider": "google",
+                    "access_token": "EAACEdEose0cBAHc6hv9kK8bMNs4XTrT0kVC1RgDZCVBptXW12AI"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Sign In",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6joiYXJ0aHVIjoxNjEzNTY3MzA0fQ.6EPCOfBGynidAfpVqlvbHGWHCJ5LZLtKvPaQ",
+                    "access_expired": 3600,
+                    "user": {
+                      "id": 11245642,
+                      "provider": "facebook",
+                      "name": "Pei",
+                      "email": "pei@appworks.tw",
+                      "picture": "https://schoolvoyage.ga/images/123498.png"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Sign In Failed",
+            "content": {
+              "text": {
+                "example": "Sign in failed"
+              }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "content": {
+              "text": {
+                "example": "Client error message"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Server error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/profile": {
+      "get": {
+        "summary": "User Profile",
+        "tags": ["user"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Profile Retrieval",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "provider": "google",
+                    "name": "Pei",
+                    "email": "pei@appworks.tw",
+                    "picture": "https://schoolvoyage.ga/images/123498.png"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Client Error (No token)",
+            "content": {
+              "text": {
+                "example": "No access token provided"
+              }
+            }
+          },
+          "403": {
+            "description": "Client Error (Wrong token)",
+            "content": {
+              "text": {
+                "example": "Invalid access token"
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "text": {
+                "example": "Server error message"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/order/checkout": {
+      "post": {
+        "summary": "Order Check Out",
+        "tags": ["order"],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "requestBody": {
+          "description": "Check Out Details.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prime": {
+                    "type": "string",
+                    "description": "Prime Key from TapPay"
+                  },
+                  "order": {
+                    "type": "object",
+                    "properties": {
+                      "shipping": {
+                        "type": "string",
+                        "description": "Shipping method (e.g., 'delivery')"
+                      },
+                      "payment": {
+                        "type": "string",
+                        "description": "Payment method (e.g., 'credit_card')"
+                      },
+                      "subtotal": {
+                        "type": "number",
+                        "description": "Subtotal price (excluded Freight Fee)"
+                      },
+                      "freight": {
+                        "type": "number",
+                        "description": "Freight Fee"
+                      },
+                      "total": {
+                        "type": "number",
+                        "description": "Final Price"
+                      },
+                      "recipient": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Recipient's name"
+                          },
+                          "phone": {
+                            "type": "string",
+                            "description": "Recipient's phone number"
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Recipient's email"
+                          },
+                          "address": {
+                            "type": "string",
+                            "description": "Recipient's address"
+                          },
+                          "time": {
+                            "type": "string",
+                            "description": "Delivery time (e.g., 'morning', 'afternoon', 'anytime')"
+                          }
+                        }
+                      },
+                      "list": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Product ID"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Product Name"
+                            },
+                            "price": {
+                              "type": "number",
+                              "description": "Product Unit Price"
+                            },
+                            "color": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Product Variant Color Name"
+                                },
+                                "code": {
+                                  "type": "string",
+                                  "description": "Product Variant Color HexCode"
+                                }
+                              }
+                            },
+                            "size": {
+                              "type": "string",
+                              "description": "Product Variant Size"
+                            },
+                            "qty": {
+                              "type": "integer",
+                              "description": "Quantity"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "example1": {
+                  "value": {
+                    "prime": "ccc1491581661f700bcc1cafec673c741f0665ca77550fe828ef38ee1437a2b8",
+                    "order": {
+                      "shipping": "delivery",
+                      "payment": "credit_card",
+                      "subtotal": 1234,
+                      "freight": 14,
+                      "total": 1300,
+                      "recipient": {
+                        "name": "Luke",
+                        "phone": "0987654321",
+                        "email": "luke@gmail.com",
+                        "address": "市政府站",
+                        "time": "morning"
+                      },
+                      "list": [
+                        {
+                          "id": "201807202157",
+                          "name": "活力花紋長筒牛仔褲",
+                          "price": 1299,
+                          "color": {
+                            "code": "DDF0FF",
+                            "name": "淺藍"
+                          },
+                          "size": "M",
+                          "qty": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful Profile Retrieval",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "data": {
+                      "number": "4465123465"
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Client Error (No token)",
+              "content": {
+                "text": {
+                  "example": "No access token provided"
+                }
+              }
+            },
+            "403": {
+              "description": "Client Error (Wrong token)",
+              "content": {
+                "text": {
+                  "example": "Invalid access token"
+                }
+              }
+            },
+            "500": {
+              "description": "Server Error",
+              "content": {
+                "text": {
+                  "example": "Server error message"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Product": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "category": {
+            "type": "string",
+            "example": "men"
+          },
+          "title": {
+            "type": "string",
+            "example": "厚實毛呢格子外套"
+          },
+          "description": {
+            "type": "string",
+            "example": "高抗寒素材選用，保暖也時尚有型"
+          },
+          "price": {
+            "type": "integer",
+            "example": 2200
+          },
+          "texture": {
+            "type": "string",
+            "example": "棉、聚脂纖維"
+          },
+          "wash": {
+            "type": "string",
+            "example": "手洗（水溫40度"
+          },
+          "place": {
+            "type": "string",
+            "example": "韓國"
+          },
+          "note": {
+            "type": "string",
+            "example": "實品顏色以單品照為主"
+          },
+          "story": {
+            "type": "string",
+            "example": "你絕對不能錯過的超值商品"
+          },
+          "colors": {
+            "type": "array",
+            "example": [
+              {
+                "code": "000000",
+                "name": "黑色"
+              },
+              {
+                "code": "FFFFFF",
+                "name": "白色"
+              }
+            ]
+          },
+          "sizes": {
+            "type": "array",
+            "example": ["S", "M"]
+          },
+          "variants": {
+            "type": "array",
+            "example": [
+              {
+                "color_code": "334455",
+                "size": "S",
+                "stock": 5
+              },
+              {
+                "color_code": "334455",
+                "size": "M",
+                "stock": 10
+              },
+              {
+                "color_code": "FFFFFF",
+                "size": "S",
+                "stock": 0
+              },
+              {
+                "color_code": "FFFFFF",
+                "size": "M",
+                "stock": 2
+              }
+            ]
+          },
+          "main_image": {
+            "type": "string",
+            "example": "https://stylish.com/main.jpg"
+          },
+          "images": {
+            "type": "object",
+            "example": ["https://stylish.com/0.jpg", "https://stylish.com/1.jpg", "https://stylish.com/2.jpg"]
+          }
+        }
+      },
+      "ProductInput": {
+        "properties": {
+          "category": {
+            "type": "string",
+            "example": "men"
+          },
+          "title": {
+            "type": "string",
+            "example": "厚實毛呢格子外套"
+          },
+          "description": {
+            "type": "string",
+            "example": "高抗寒素材選用，保暖也時尚有型"
+          },
+          "price": {
+            "type": "integer",
+            "example": 2200
+          },
+          "texture": {
+            "type": "string",
+            "example": "棉、聚脂纖維"
+          },
+          "wash": {
+            "type": "string",
+            "example": "手洗（水溫40度"
+          },
+          "place": {
+            "type": "string",
+            "example": "韓國"
+          },
+          "note": {
+            "type": "string",
+            "example": "實品顏色以單品照為主"
+          },
+          "story": {
+            "type": "string",
+            "example": "你絕對不能錯過的超值商品"
+          },
+          "colors": {
+            "type": "array",
+            "example": [
+              {
+                "code": "000000",
+                "name": "黑色"
+              },
+              {
+                "code": "FFFFFF",
+                "name": "白色"
+              }
+            ]
+          },
+          "sizes": {
+            "type": "array",
+            "example": ["S", "M"]
+          },
+          "variants": {
+            "type": "array",
+            "example": [
+              {
+                "color_code": "334455",
+                "size": "S",
+                "stock": 5
+              },
+              {
+                "color_code": "334455",
+                "size": "M",
+                "stock": 10
+              },
+              {
+                "color_code": "FFFFFF",
+                "size": "S",
+                "stock": 0
+              },
+              {
+                "color_code": "FFFFFF",
+                "size": "M",
+                "stock": 2
+              }
+            ]
+          }
+        }
+      },
+      "User": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 11245642
+          },
+          "provider": {
+            "type": "string",
+            "example": "facebook"
+          },
+          "name": {
+            "type": "string",
+            "example": "Pei"
+          },
+          "email": {
+            "type": "string",
+            "example": "pei@appworks.tw"
+          },
+          "picture": {
+            "type": "string",
+            "example": "https://schoolvoyage.ga/images/123498.png"
+          }
+        }
+      }
+    }
+  }
+}

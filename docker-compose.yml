@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  stylish-frontend:
+    image: "jarenchang/stylish-frontend"
+    container_name: stylish-frontend-container
+    depends_on:
+      - stylish-backend
+    env_file:
+      - ./client/.env.local
+    networks:
+      - stylish_network
+
+  stylish-backend:
+    image: "jarenchang/stylish-backend"
+    container_name: stylish-backend-container
+    depends_on:
+      - redis
+    env_file:
+      - ./server/.env
+    networks:
+      - stylish_network
+
+  redis:
+    image: "redis:latest"
+    container_name: stylish-redis
+    restart: always
+    networks:
+      - stylish_network
+
+  nginx:
+    image: "nginx:latest"
+    volumes:
+      - /etc/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - stylish-frontend
+      - stylish-backend
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - stylish_network
+
+networks:
+  stylish_network:

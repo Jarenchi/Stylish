@@ -22,6 +22,15 @@ const loginSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string(),
 });
+interface UserData {
+  access_token: string;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    picture: string;
+  };
+}
 
 const LoginForm: React.FC<LoginFormProps> = ({ setShowLogin, showLogin }) => {
   const navigate = useNavigate();
@@ -33,7 +42,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ setShowLogin, showLogin }) => {
     formState: { errors },
   } = useForm<Form>({ resolver: zodResolver(validationScheme) });
 
-  function setCookies(data) {
+  function setCookies(data: UserData) {
     const maxAge = { expires: 1 / 24 }; // 1hr
     Cookies.set("token", data.access_token, maxAge);
     Cookies.set("user_id", data.user.id.toString(), maxAge);

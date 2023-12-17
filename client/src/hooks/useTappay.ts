@@ -6,6 +6,7 @@ const useTappay = () => {
   useEffect(() => {
     TPDirect.setupSDK(VITE_TAPPAY_APPID, VITE_TAPPAY_APPKEY, VITE_TAPPAY_SERVER_TYPE);
     TPDirect.card.setup({
+      // @ts-ignore
       fields: {
         number: {
           element: "#card-number",

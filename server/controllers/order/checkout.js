@@ -1,9 +1,9 @@
 const axios = require("axios");
-const Redis = require("ioredis");
-const redis = new Redis({
-  host: "redis",
-  port: 6379,
-});
+// const Redis = require("ioredis");
+// const redis = new Redis({
+//   host: "redis",
+//   port: 6379,
+// });
 const { updateProductVariants, saveCheckoutDetail, checkProductStock } = require("../../models/orderModel");
 const pool = require("../../database.js");
 const checkout = async (req, res) => {
@@ -50,7 +50,7 @@ const checkout = async (req, res) => {
       const size = item.size;
       const qty = item.qty;
       await updateProductVariants(connection, productId, colorCode, size, qty);
-      redis.del(`productId:${productId}`);
+      // redis.del(`productId:${productId}`);
     });
     await connection.commit();
     const data = {
